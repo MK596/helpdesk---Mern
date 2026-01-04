@@ -1,0 +1,23 @@
+{
+  "name": "helpdesk-mern",
+  "version": "1.0.0",
+  "description": "MERN Helpdesk System",
+  "main": "backend/server.js",
+  "author": "MK596",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "install-all": "npm install && npm install --prefix backend && npm install --prefix frontend",
+    "build": "npm run install-all && npm run build --prefix frontend",
+    "start": "cross-env NODE_ENV=production node backend/server.js",
+    "server": "npm run server --prefix backend",
+    "client": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3"
+  }
+}
