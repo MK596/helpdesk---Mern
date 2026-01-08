@@ -182,6 +182,55 @@ function Home() {
                         </div>
                     </div>
                 )}
+                {/* Usage Guidelines & Terms */}
+                <div className="row justify-content-center mb-5">
+                    <div className="col-md-10">
+                        <div className="card border-0 shadow-sm rounded-4 overflow-hidden">
+                            <div className="card-header bg-light border-0 py-3 px-4">
+                                <h5 className="fw-black mb-0 d-flex align-items-center gap-2">
+                                    <FaQuestionCircle className="text-primary" /> Usage Guidelines & Terms
+                                </h5>
+                            </div>
+                            <div className="card-body p-4">
+                                <div className="row g-4">
+                                    <div className="col-md-6">
+                                        <h6 className="fw-bold text-primary mb-2">1. Account Responsibility</h6>
+                                        <p className="text-muted small">
+                                            Users are responsible for maintaining the confidentiality of their account credentials.
+                                            Contact administrators immediately if you suspect unauthorized access.
+                                        </p>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <h6 className="fw-bold text-primary mb-2">2. Ticket Submission</h6>
+                                        <p className="text-muted small">
+                                            Please provide detailed descriptions and accurate priority levels for all requests.
+                                            One issue per ticket helps our team resolve your problems faster.
+                                        </p>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <h6 className="fw-bold text-primary mb-2">3. Professional Conduct</h6>
+                                        <p className="text-muted small">
+                                            Our support staff is here to help. We maintain a zero-tolerance policy for
+                                            harassment or abusive language in ticket communications.
+                                        </p>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <h6 className="fw-bold text-primary mb-2">4. Resolution Policy</h6>
+                                        <p className="text-muted small">
+                                            Tickets are processed based on priority and submission time.
+                                            Closing a ticket signifies your issue has been successfully resolved.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="mt-4 pt-4 border-top">
+                                    <p className="text-center text-muted small mb-0 font-italic">
+                                        By using this platform, you agree to follow these guidelines to ensure a productive support environment for everyone.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
