@@ -175,9 +175,6 @@ function Ticket() {
                                             </button>
                                         </>
                                     )}
-                                    <button onClick={onDelete} className="btn btn-outline-danger btn-sm fw-bold d-flex align-items-center gap-2">
-                                        <FaTrash /> DELETE
-                                    </button>
                                 </>
                             )}
                         </div>
