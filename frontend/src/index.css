@@ -134,6 +134,10 @@ body {
   border-radius: 8px;
 }
 
+.header-nav {
+  background-color: #ffffff !important;
+}
+
 /* Premium Buttons */
 .btn {
   font-weight: 600;
