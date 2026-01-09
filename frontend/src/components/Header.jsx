@@ -1,11 +1,26 @@
 import { FaSignInAlt, FaSignOutAlt, FaUser, FaLock, FaLifeRing } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import AuthContext from '../context/AuthContext';
 
 function Header() {
     const navigate = useNavigate();
     const { user, logout } = useContext(AuthContext);
+
+    // Local state for scroll effect
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     const onLogout = () => {
         logout();
@@ -13,49 +28,45 @@ function Header() {
     };
 
     return (
-        <nav className="navbar navbar-expand-lg border-bottom sticky-top py-3 header-nav">
-            <div className="container">
-                <Link className="navbar-brand d-flex align-items-center gap-2 text-primary" to="/">
-                    <FaLifeRing className="fs-4" />
-                    <span className="fw-black">HELPDESK</span>
+        <nav className={`navbar border-bottom sticky-top py-2 py-sm-3 header-nav transition-all ${scrolled ? 'scrolled shadow-sm' : ''}`}>
+            <div className="container d-flex align-items-center justify-content-between px-3 px-sm-4">
+                <Link className="navbar-brand d-flex align-items-center gap-1 gap-sm-2 text-primary" to="/">
+                    <FaLifeRing className="fs-5 fs-sm-4" />
+                    <span className="fw-black" style={{ fontSize: 'clamp(0.9rem, 4.5vw, 1.25rem)', letterSpacing: '-0.02em' }}>HELPDESK</span>
                 </Link>
 
-                <button className="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ms-auto align-items-lg-center gap-2 mt-3 mt-lg-0">
+                <div className="ms-auto">
+                    <ul className="navbar-nav flex-row align-items-center gap-3 gap-sm-4">
                         {user ? (
                             <>
                                 {user.role === 'admin' && (
                                     <li className="nav-item">
-                                        <Link className="nav-link d-flex align-items-center gap-2 fw-semibold px-3" to="/admin">
-                                            <FaLock /> Admin
+                                        <Link className="nav-link d-flex align-items-center gap-1 fw-bold px-1" to="/admin">
+                                            <FaLock size={15} /> <span className="d-none d-md-inline">Admin</span>
                                         </Link>
                                     </li>
                                 )}
                                 <li className="nav-item">
-                                    <Link className="nav-link d-flex align-items-center gap-2 fw-semibold px-3" to="/profile">
-                                        <FaUser /> Profile
+                                    <Link className="nav-link d-flex align-items-center gap-1 fw-bold px-1" to="/profile">
+                                        <FaUser size={15} /> <span className="d-none d-md-inline">Profile</span>
                                     </Link>
                                 </li>
-                                <li className="nav-item ms-lg-2">
-                                    <button className="btn btn-outline-danger d-flex align-items-center gap-2 w-100 justify-content-center" onClick={onLogout}>
-                                        <FaSignOutAlt /> Logout
+                                <li className="nav-item">
+                                    <button className="btn btn-outline-danger btn-sm d-flex align-items-center gap-1 px-3" onClick={onLogout}>
+                                        <FaSignOutAlt size={12} /> <span className="d-none d-sm-inline">Logout</span>
                                     </button>
                                 </li>
                             </>
                         ) : (
                             <>
                                 <li className="nav-item">
-                                    <Link className="nav-link d-flex align-items-center gap-2 fw-semibold px-3" to="/login">
-                                        <FaSignInAlt /> Login
+                                    <Link className="nav-link d-flex align-items-center gap-1 fw-bold px-1" to="/login">
+                                        <FaSignInAlt size={15} /> <span style={{ fontSize: '0.9rem' }}>Login</span>
                                     </Link>
                                 </li>
-                                <li className="nav-item ms-lg-2">
-                                    <Link className="btn btn-primary d-flex align-items-center gap-2 w-100 justify-content-center shadow-sm" to="/register">
-                                        <FaUser /> Register
+                                <li className="nav-item">
+                                    <Link className="btn btn-primary btn-sm d-flex align-items-center gap-1 px-3 shadow-sm border-0" to="/register">
+                                        <FaUser size={13} /> <span style={{ fontSize: '0.9rem' }}>Register</span>
                                     </Link>
                                 </li>
                             </>

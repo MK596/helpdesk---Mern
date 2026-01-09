@@ -5,6 +5,8 @@ body {
   color: #1e293b;
   -webkit-font-smoothing: antialiased;
   font-size: 0.875rem;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 :root {
@@ -135,7 +137,16 @@ body {
 }
 
 .header-nav {
-  background-color: #ffffff !important;
+  background-color: var(--glass-bg) !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.header-nav.scrolled {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
 }
 
 /* Premium Buttons */
@@ -235,6 +246,19 @@ body {
   background: #94a3b8;
 }
 
+/* Accessible Hit Targets for Mobile */
+@media (max-width: 576px) {
+
+  .btn,
+  .nav-link,
+  button {
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 .whitespace-pre-wrap {
   white-space: pre-wrap;
 }
@@ -279,12 +303,26 @@ body {
   }
 
   .navbar-brand {
-    font-size: 1.15rem;
+    font-size: 1rem;
+  }
+
+  .header-nav {
+    margin: 8px 12px;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border) !important;
+    background: var(--glass-bg) !important;
   }
 
   .btn {
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    border-radius: 10px;
+  }
+
+  .nav-link {
     font-size: 0.8rem;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
 }
 

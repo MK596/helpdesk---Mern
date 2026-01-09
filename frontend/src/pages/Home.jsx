@@ -32,15 +32,15 @@ function Home() {
     return (
         <div className="home-wrapper">
             {/* Hero Section */}
-            <header className="hero-section py-5 mb-5 position-relative overflow-hidden text-center">
+            <header className="hero-section py-4 py-md-5 mb-4 mb-md-5 position-relative overflow-hidden text-center">
                 <div className="container position-relative z-1">
-                    <div className="mb-4 d-inline-block">
+                    <div className="mb-3 d-inline-block">
                         <span className="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill fw-bold letter-spacing-tight d-flex align-items-center gap-2 mx-auto" style={{ width: 'fit-content' }}>
                             <FaShieldAlt size={14} /> Official Support Portal
                         </span>
                     </div>
                     <h1 className="display-4 fw-black mb-3 text-gradient">How can we help today?</h1>
-                    <p className="lead text-muted mx-auto mb-4" style={{ maxWidth: '600px' }}>
+                    <p className="lead text-muted mx-auto mb-4 px-2" style={{ maxWidth: '600px' }}>
                         {user ? (
                             <>Welcome back, <span className="fw-bold text-primary">{user.name}</span>. Track resolution progress or start a new conversation with our experts.</>
                         ) : (
@@ -48,7 +48,7 @@ function Home() {
                         )}
                     </p>
                     {!user && (
-                        <div className="d-flex justify-content-center gap-3">
+                        <div className="d-flex flex-column flex-sm-row justify-content-center gap-2 gap-sm-3 px-4 px-sm-0">
                             <Link to="/login" className="btn btn-primary px-4 py-2 rounded-pill shadow hover-translate transition-all">
                                 Get Started
                             </Link>
@@ -68,8 +68,8 @@ function Home() {
                     <div className="row justify-content-center g-3 g-md-4 mb-5">
                         <div className="col-12 col-md-5">
 
-                            <div className="card h-100 border-0 glass-card p-4 hover-translate hover-glow transition-all rounded-4 shadow-sm">
-                                <div className="d-flex align-items-start gap-4">
+                            <div className="card h-100 border-0 glass-card p-3 p-md-4 hover-translate hover-glow transition-all rounded-4 shadow-sm">
+                                <div className="d-flex align-items-start gap-3 gap-md-4">
                                     <div className="bg-gradient-primary text-white p-3 rounded-4 shadow-sm">
                                         <FaPlus className="fs-3" />
                                     </div>
@@ -86,13 +86,13 @@ function Home() {
 
                         <div className="col-12 col-md-5">
 
-                            <div className="card h-100 border-0 glass-card p-4 hover-translate hover-glow transition-all rounded-4 shadow-sm position-relative">
+                            <div className="card h-100 border-0 glass-card p-3 p-md-4 hover-translate hover-glow transition-all rounded-4 shadow-sm position-relative">
                                 {activeCount > 0 && (
                                     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-3 border-white shadow" style={{ fontSize: '10px', zIndex: 1, padding: '6px 8px' }}>
                                         {activeCount} PENDING
                                     </span>
                                 )}
-                                <div className="d-flex align-items-start gap-4">
+                                <div className="d-flex align-items-start gap-3 gap-md-4">
                                     <div className="bg-dark text-white p-3 rounded-4 shadow-sm">
                                         <FaTicketAlt className="fs-3" />
                                     </div>
